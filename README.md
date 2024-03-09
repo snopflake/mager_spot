@@ -1,5 +1,6 @@
 # Mager Spot
 
+
 🚀by BCC Intern 11:
 + Nabil Athaya (Product Manager)
 + Anggun Amalia (Product Design)
