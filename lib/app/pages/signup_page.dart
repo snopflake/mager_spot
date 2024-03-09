@@ -1,4 +1,5 @@
 import 'package:flutter/gestures.dart';
+import 'package:mager_spot/app/pages/fill_profile_page.dart';
 import 'package:mager_spot/app/pages/login_page.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
 import 'package:mager_spot/app/pages/widgets/facebook_buttons.dart';
@@ -51,7 +52,8 @@ class _SignUpPageState extends State<SignUpPage> {
             "assets/logoWhiteDua.png",
             height: 200,
             width: 200,
-          )
+          ),
+          SizedBox(height: 41)
         ],
 
       ),
@@ -144,12 +146,16 @@ class _SignUpPageState extends State<SignUpPage> {
             controller: passwordController,
             textInputType: TextInputType.name,
           ),
+
+          //PPP TOMBOL DISINII
           SizedBox(height: 47,),
           Buttons(
             text: "Daftar", 
-            onClicked: () {}, 
+            onClicked: () => 
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => FillProfilePage()))), 
             width: mediaSize.width
           ),
+
           SizedBox(height: 49,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

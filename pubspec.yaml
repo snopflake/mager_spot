@@ -26,8 +26,8 @@ flutter_icons:
   android: true
   ios: true
   image_path: "assets/magerSpot.png"
-  adaptive_icon_background: "#ffffff"
-  adaptive_icon_foreground: "assets/Blue.png"
+  adaptive_icon_background: "#19253D"
+  adaptive_icon_foreground: "assets/logoWhiteDua.png"
 
 flutter:
   uses-material-design: true

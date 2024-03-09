@@ -1,4 +1,5 @@
 import 'package:flutter/gestures.dart';
+import 'package:mager_spot/app/pages/fill_profile_page.dart';
 import 'package:mager_spot/app/pages/signup_page.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
 import 'package:mager_spot/app/pages/widgets/facebook_buttons.dart';
@@ -50,7 +51,8 @@ class _LoginPageState extends State<LoginPage> {
             "assets/logoWhiteDua.png",
             height: 200,
             width: 200,
-          )
+          ),
+          SizedBox(height: 41)
         ],
 
       ),
@@ -80,9 +82,10 @@ class _LoginPageState extends State<LoginPage> {
     return Padding(
       padding: const EdgeInsets.only(top: 32, bottom: 66, left: 54, right: 54),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "Selamat Datang!",
+            "Selamat Datang Kembali!",
             style: GoogleFonts.nunito(
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -142,11 +145,16 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ),
           SizedBox(height: 24,),
+
+          // PPP TOMBOL DISINIII
           Buttons(
             text: "Masuk", 
-            onClicked: () {}, 
-            width: mediaSize.width
+            width: mediaSize.width,
+            onClicked: () => 
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => FillProfilePage()))), 
           ),
+
+
           SizedBox(height: 24,),
           Text(
             "atau masuk dengan",
