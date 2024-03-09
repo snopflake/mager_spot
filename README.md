@@ -8,4 +8,4 @@
 + Komang David D. S. (Back End)
 
 🚀Let's explore our apps!
-Mager Spot adalah aplikasi marketplace yang membantu mahasiswa universitas brawijaya untuk melakukan kegiatan wirausaha.
++ Mager Spot adalah aplikasi marketplace yang membantu mahasiswa universitas brawijaya untuk melakukan kegiatan wirausaha.
