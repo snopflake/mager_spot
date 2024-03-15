@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 
-class FacebookButtons extends StatelessWidget {
+class ButtonsImage extends StatelessWidget {
   
   final String text;
   final VoidCallback onClicked;
   final double width;
+  final String image;
 
-  const FacebookButtons({
+  const ButtonsImage({
     super.key,
     required this.text,
-    required this.onClicked,
     required this.width,
+    required this.image,
+    required this.onClicked,
   });
 
   @override
@@ -38,7 +40,7 @@ class FacebookButtons extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(
-            "assets/facebookLogo.png",
+            image,
             height: 15,
             width: 15,
           ),

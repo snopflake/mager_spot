@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 
-class TextFields extends StatefulWidget {
-  const TextFields({
+class TextFieldsPassword extends StatefulWidget {
+  const TextFieldsPassword({
     Key? key,
       required this.controller,
       required this.textInputType,
@@ -16,11 +16,13 @@ class TextFields extends StatefulWidget {
   final String text;
 
   @override
-  State<TextFields> createState() => _TextFieldsState();
+  State<TextFieldsPassword> createState() => _TextFieldsPasswordState();
 
 }
 
-class _TextFieldsState extends State<TextFields> {
+class _TextFieldsPasswordState extends State<TextFieldsPassword> {
+
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class _TextFieldsState extends State<TextFields> {
       child:  TextFormField(
         controller: widget.controller,
         keyboardType: widget.textInputType,
-
+        
         style:  GoogleFonts.nunito(
           color: ColorStyles.darkGrey,
           fontSize: 13,
@@ -38,8 +40,18 @@ class _TextFieldsState extends State<TextFields> {
 
         decoration: InputDecoration(
           hintText: widget.text,
+          suffixIcon: GestureDetector(
+            onTap: () {
+              setState(() {
+                _obscureText = !_obscureText;
+              });
+            },
+          child: Icon(_obscureText ? Icons.visibility_outlined : Icons.visibility_off_outlined),
+          
+          )
         ),
-
+        
+        obscureText: _obscureText,
 
       ),
 

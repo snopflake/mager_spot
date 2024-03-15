@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:mager_spot/app/pages/login_page.dart';
+import 'package:mager_spot/app/pages/auth/auth_page.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
 
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => LoginPage())));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => AuthPage())));
 
      });
   }

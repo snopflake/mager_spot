@@ -1,27 +1,26 @@
 import 'package:flutter/gestures.dart';
-import 'package:mager_spot/app/pages/fill_profile_page.dart';
-import 'package:mager_spot/app/pages/login_page.dart';
+import 'package:mager_spot/app/pages/auth/confirm_splash_page.dart';
+import 'package:mager_spot/app/pages/auth/daftar/auth_daftar_pembeli_page.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
-import 'package:mager_spot/app/pages/widgets/facebook_buttons.dart';
-import 'package:mager_spot/app/pages/widgets/google_buttons.dart';
+import 'package:mager_spot/app/pages/widgets/buttons_image.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields.dart';
+import 'package:mager_spot/app/pages/widgets/text_fields_password.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class MasukPembeli extends StatefulWidget {
+  const MasukPembeli({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<MasukPembeli> createState() => _MasukPembeliState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _MasukPembeliState extends State<MasukPembeli> {
 
   late Size mediaSize;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController namaController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -81,11 +80,12 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _buildForm() {
     return Padding(
-      padding: const EdgeInsets.only(top: 32, bottom: 66, left: 54, right: 54),
+      padding: const EdgeInsets.only(top: 32, bottom:66, left: 54, right: 54),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "Selamat Datang!",
+            "Selamat Datang Kembali!",
             style: GoogleFonts.nunito(
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -97,66 +97,102 @@ class _SignUpPageState extends State<SignUpPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "Nama",
+                "Email",
                 style: GoogleFonts.nunito(
                   fontSize: 12,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   color: ColorStyles.black,
                 ),
               ),
             ],
           ),
+
+          //Bukan Akun UB
           TextFields(
-            controller: namaController,
+            controller: emailController,
             textInputType: TextInputType.emailAddress,
+            text: "",
           ),
+
           SizedBox(height: 16,),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "Email",
+                "Kata Sandi",
                 style: GoogleFonts.nunito(
                   fontSize: 12,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   color: ColorStyles.black,
                 ),
               ),
             ],
           ),
-          TextFields(
-            controller: emailController,
-            textInputType: TextInputType.name,
-          ),
-          SizedBox(height: 16),
+          TextFieldsPassword(
+            controller: passwordController, 
+            textInputType: TextInputType.name, 
+            text: "",
+            ),
+          SizedBox(height: 8.5,),
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
-                "Password",
-                style: GoogleFonts.nunito(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: ColorStyles.black,
-                ),
+              RichText(
+                text: TextSpan(
+                    text: "Lupa password?",
+                    style: GoogleFonts.nunito(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    color: ColorStyles.darkGrey,
+                 ),
+                )
               ),
             ],
           ),
-          TextFields(
-            controller: passwordController,
-            textInputType: TextInputType.name,
-          ),
+          SizedBox(height: 24,),
 
-          //PPP TOMBOL DISINII
-          SizedBox(height: 47,),
+          // PPP TOMBOL DISINIII
           Buttons(
-            text: "Daftar", 
+            text: "Masuk", 
+            colorBackground: ColorStyles.secondary,
+            colorText: ColorStyles.primaryBase,
+            width: mediaSize.width,
+            round: 24,
             onClicked: () => 
-            Navigator.push(context, MaterialPageRoute(builder: ((context) => FillProfilePage()))), 
-            width: mediaSize.width
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => ConfirmSpalshPage()))), 
           ),
 
-          SizedBox(height: 49,),
+
+          SizedBox(height: 24,),
+          Text(
+            "atau masuk dengan",
+            style: GoogleFonts.nunito(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: ColorStyles.black,
+            ),
+          ),
+          SizedBox(height: 20),
+
+          //Button Image
+          Row(
+            children: [
+              ButtonsImage(
+                text: "Google",
+                 width: 122, 
+                 image: "assets/googleLogo.png", 
+                 onClicked: (){}),
+
+               SizedBox(width: 15),
+
+              ButtonsImage( 
+                text: "Facebook", 
+                width: 122, 
+                image: "assets/facebookLogo.png"
+              , onClicked: (){})
+            ],
+          ),
+          SizedBox(height: 24,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -169,14 +205,14 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 children: [
                   TextSpan(
-                  text: " Masuk",
+                  text: " Daftar",
                   style: GoogleFonts.nunito(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                   color: ColorStyles.black,
                    ),
                    recognizer: TapGestureRecognizer()..onTap = () => 
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => LoginPage()))),
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => DaftarPembeli()))),
                   )
                  ]
                 )
@@ -184,6 +220,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ],
           ),
 
+         
 
 
 

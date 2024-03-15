@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ColorStyles {
 
   static Color black = const Color(0xFF3C3C3C);
+  static Color pureBlack = const Color(0xFF1E1E1E);
   static Color primaryBase  = const Color(0xFFFFFFFF);
   static Color error = const Color(0xFFF04438);
 
