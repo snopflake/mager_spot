@@ -1,26 +1,27 @@
 import 'package:flutter/gestures.dart';
-import 'package:mager_spot/app/pages/auth/confirm_splash_page.dart';
-import 'package:mager_spot/app/pages/auth/masuk/auth_masuk_pembeli_page.dart';
+import 'package:mager_spot/app/pages/auth/daftar/confirm_pembeli.dart';
+import 'package:mager_spot/app/pages/auth/daftar/daftar_pembeli_page.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/main_pembeli.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
+import 'package:mager_spot/app/pages/widgets/buttons_image.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields_password.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DaftarPembeli extends StatefulWidget {
-  const DaftarPembeli({super.key});
+class MasukPembeli extends StatefulWidget {
+  const MasukPembeli({super.key});
 
   @override
-  State<DaftarPembeli> createState() => _DaftarPembeliState();
+  State<MasukPembeli> createState() => _MasukPembeliState();
 }
 
-class _DaftarPembeliState extends State<DaftarPembeli> {
+class _MasukPembeliState extends State<MasukPembeli> {
 
   late Size mediaSize;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController namaController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,11 +81,12 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
 
   Widget _buildForm() {
     return Padding(
-      padding: const EdgeInsets.only(top: 32, bottom: 66, left: 54, right: 54),
+      padding: const EdgeInsets.only(top: 32, bottom:66, left: 54, right: 54),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "Selamat Datang!",
+            "Selamat Datang Kembali!",
             style: GoogleFonts.nunito(
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -96,43 +98,24 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "Nama",
-                style: GoogleFonts.nunito(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: ColorStyles.black,
-                ),
-              ),
-            ],
-          ),
-          TextFields(
-            controller: namaController,
-            textInputType: TextInputType.name,
-            text: "",
-          ),
-          SizedBox(height: 16,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
                 "Email",
                 style: GoogleFonts.nunito(
                   fontSize: 12,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   color: ColorStyles.black,
                 ),
               ),
             ],
           ),
 
-          //Gaperlu Email UB
+          //Bukan Akun UB
           TextFields(
             controller: emailController,
             textInputType: TextInputType.emailAddress,
             text: "",
           ),
 
-          SizedBox(height: 16),
+          SizedBox(height: 16,),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -140,7 +123,7 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
                 "Kata Sandi",
                 style: GoogleFonts.nunito(
                   fontSize: 12,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   color: ColorStyles.black,
                 ),
               ),
@@ -149,21 +132,68 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
           TextFieldsPassword(
             controller: passwordController, 
             textInputType: TextInputType.name, 
-            text: ""),
+            text: "",
+            ),
+          SizedBox(height: 8.5,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              RichText(
+                text: TextSpan(
+                    text: "Lupa password?",
+                    style: GoogleFonts.nunito(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    color: ColorStyles.darkGrey,
+                 ),
+                )
+              ),
+            ],
+          ),
+          SizedBox(height: 24,),
 
-          //PPP TOMBOL DISINII
-          SizedBox(height: 47,),
+          // PPP TOMBOL DISINIII
           Buttons(
-            text: "Daftar", 
-            round: 24,
+            text: "Masuk", 
             colorBackground: ColorStyles.secondary,
             colorText: ColorStyles.primaryBase,
+            width: mediaSize.width,
+            round: 24,
             onClicked: () => 
-            Navigator.push(context, MaterialPageRoute(builder: ((context) => ConfirmSpalshPage()))), 
-            width: mediaSize.width
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => MainPembeli()))), 
           ),
 
-          SizedBox(height: 49,),
+
+          SizedBox(height: 24,),
+          Text(
+            "atau masuk dengan",
+            style: GoogleFonts.nunito(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: ColorStyles.black,
+            ),
+          ),
+          SizedBox(height: 20),
+
+          //Button Image
+          Row(
+            children: [
+              ButtonsImage(
+                text: "Google",
+                 width: 122, 
+                 image: "assets/googleLogo.png", 
+                 onClicked: (){}),
+
+               SizedBox(width: 15),
+
+              ButtonsImage( 
+                text: "Facebook", 
+                width: 122, 
+                image: "assets/facebookLogo.png"
+              , onClicked: (){})
+            ],
+          ),
+          SizedBox(height: 24,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -176,14 +206,14 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
                 ),
                 children: [
                   TextSpan(
-                  text: " Masuk",
+                  text: " Daftar",
                   style: GoogleFonts.nunito(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                   color: ColorStyles.black,
                    ),
                    recognizer: TapGestureRecognizer()..onTap = () => 
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => MasukPembeli()))),
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => DaftarPembeli()))),
                   )
                  ]
                 )
@@ -191,6 +221,7 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
             ],
           ),
 
+         
 
 
 

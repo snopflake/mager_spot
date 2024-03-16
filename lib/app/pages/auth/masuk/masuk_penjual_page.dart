@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
-import 'package:mager_spot/app/pages/auth/confirm_splash_page.dart';
-import 'package:mager_spot/app/pages/auth/daftar/auth_daftar_pembeli_page.dart';
+import 'package:mager_spot/app/pages/auth/daftar/confirm_pembeli.dart';
+import 'package:mager_spot/app/pages/auth/daftar/daftar_penjual_page.dart';
+import 'package:mager_spot/app/pages/home%20penjual/main_penjual.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
 import 'package:mager_spot/app/pages/widgets/buttons_image.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields.dart';
@@ -9,14 +10,14 @@ import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MasukPembeli extends StatefulWidget {
-  const MasukPembeli({super.key});
+class MasukPenjual extends StatefulWidget {
+  const MasukPenjual({super.key});
 
   @override
-  State<MasukPembeli> createState() => _MasukPembeliState();
+  State<MasukPenjual> createState() => _MasukPenjualState();
 }
 
-class _MasukPembeliState extends State<MasukPembeli> {
+class _MasukPenjualState extends State<MasukPenjual> {
 
   late Size mediaSize;
   TextEditingController emailController = TextEditingController();
@@ -107,11 +108,11 @@ class _MasukPembeliState extends State<MasukPembeli> {
             ],
           ),
 
-          //Bukan Akun UB
+          //Akun UB
           TextFields(
             controller: emailController,
             textInputType: TextInputType.emailAddress,
-            text: "",
+            text: "@student.ub.ac.id",
           ),
 
           SizedBox(height: 16,),
@@ -128,11 +129,13 @@ class _MasukPembeliState extends State<MasukPembeli> {
               ),
             ],
           ),
+          
           TextFieldsPassword(
             controller: passwordController, 
             textInputType: TextInputType.name, 
-            text: "",
+            text: ""
             ),
+
           SizedBox(height: 8.5,),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -159,7 +162,7 @@ class _MasukPembeliState extends State<MasukPembeli> {
             width: mediaSize.width,
             round: 24,
             onClicked: () => 
-            Navigator.push(context, MaterialPageRoute(builder: ((context) => ConfirmSpalshPage()))), 
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => MainPenjual()))), 
           ),
 
 
@@ -212,7 +215,7 @@ class _MasukPembeliState extends State<MasukPembeli> {
                   color: ColorStyles.black,
                    ),
                    recognizer: TapGestureRecognizer()..onTap = () => 
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => DaftarPembeli()))),
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => DaftarPenjual()))),
                   )
                  ]
                 )

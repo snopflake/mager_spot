@@ -1,6 +1,6 @@
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/pages/auth/masuk/auth_masuk_pembeli_page.dart';
-import 'package:mager_spot/app/pages/auth/masuk/auth_masuk_penjual_page.dart';
+import 'package:mager_spot/app/pages/auth/masuk/masuk_pembeli_page.dart';
+import 'package:mager_spot/app/pages/auth/masuk/masuk_penjual_page.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';

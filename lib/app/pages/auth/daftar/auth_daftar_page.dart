@@ -1,5 +1,6 @@
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/pages/auth/daftar/auth_daftar_penjual_page.dart';
+import 'package:mager_spot/app/pages/auth/daftar/daftar_pembeli_page.dart';
+import 'package:mager_spot/app/pages/auth/daftar/daftar_penjual_page.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,8 @@ class _AuthDaftarPageState extends State<AuthDaftarPage> {
                 colorText: ColorStyles.secondary,
                 width: mediaSize.width, 
                 round: 12, 
-                onClicked: () {}
+                onClicked: () =>
+                Navigator.push(context, MaterialPageRoute(builder: ((context) => DaftarPembeli())))
               ),
 
               SizedBox(height: 22,)

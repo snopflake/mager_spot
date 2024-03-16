@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
-import 'package:mager_spot/app/pages/auth/confirm_splash_page.dart';
-import 'package:mager_spot/app/pages/auth/masuk/auth_masuk_penjual_page.dart';
+import 'package:mager_spot/app/pages/auth/daftar/confirm_pembeli.dart';
+import 'package:mager_spot/app/pages/auth/masuk/masuk_pembeli_page.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields_password.dart';
@@ -8,14 +8,14 @@ import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DaftarPenjual extends StatefulWidget {
-  const DaftarPenjual({super.key});
+class DaftarPembeli extends StatefulWidget {
+  const DaftarPembeli({super.key});
 
   @override
-  State<DaftarPenjual> createState() => _DaftarPenjualState();
+  State<DaftarPembeli> createState() => _DaftarPembeliState();
 }
 
-class _DaftarPenjualState extends State<DaftarPenjual> {
+class _DaftarPembeliState extends State<DaftarPembeli> {
 
   late Size mediaSize;
   TextEditingController emailController = TextEditingController();
@@ -125,13 +125,13 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
             ],
           ),
 
-          //Email UB
+          //Gaperlu Email UB
           TextFields(
             controller: emailController,
             textInputType: TextInputType.emailAddress,
-            text: "@student.ub.ac.id",
+            text: "",
           ),
-          
+
           SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -159,7 +159,7 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
             colorBackground: ColorStyles.secondary,
             colorText: ColorStyles.primaryBase,
             onClicked: () => 
-            Navigator.push(context, MaterialPageRoute(builder: ((context) => ConfirmSpalshPage()))), 
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => ConfirmPembeli()))), 
             width: mediaSize.width
           ),
 
@@ -183,7 +183,7 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
                   color: ColorStyles.black,
                    ),
                    recognizer: TapGestureRecognizer()..onTap = () => 
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => MasukPenjual()))),
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => MasukPembeli()))),
                   )
                  ]
                 )

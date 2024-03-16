@@ -1,26 +1,27 @@
 import 'package:flutter/gestures.dart';
-import 'package:mager_spot/app/pages/auth/confirm_splash_page.dart';
-import 'package:mager_spot/app/pages/auth/daftar/auth_daftar_penjual_page.dart';
+import 'package:mager_spot/app/pages/auth/daftar/confirm_pembeli.dart';
+import 'package:mager_spot/app/pages/auth/daftar/confirm_penjual.dart';
+import 'package:mager_spot/app/pages/auth/masuk/masuk_penjual_page.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
-import 'package:mager_spot/app/pages/widgets/buttons_image.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields_password.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MasukPenjual extends StatefulWidget {
-  const MasukPenjual({super.key});
+class DaftarPenjual extends StatefulWidget {
+  const DaftarPenjual({super.key});
 
   @override
-  State<MasukPenjual> createState() => _MasukPenjualState();
+  State<DaftarPenjual> createState() => _DaftarPenjualState();
 }
 
-class _MasukPenjualState extends State<MasukPenjual> {
+class _DaftarPenjualState extends State<DaftarPenjual> {
 
   late Size mediaSize;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController namaController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,12 +81,11 @@ class _MasukPenjualState extends State<MasukPenjual> {
 
   Widget _buildForm() {
     return Padding(
-      padding: const EdgeInsets.only(top: 32, bottom:66, left: 54, right: 54),
+      padding: const EdgeInsets.only(top: 32, bottom: 66, left: 54, right: 54),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "Selamat Datang Kembali!",
+            "Selamat Datang!",
             style: GoogleFonts.nunito(
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -97,24 +97,43 @@ class _MasukPenjualState extends State<MasukPenjual> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
+                "Nama",
+                style: GoogleFonts.nunito(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: ColorStyles.black,
+                ),
+              ),
+            ],
+          ),
+          TextFields(
+            controller: namaController,
+            textInputType: TextInputType.name,
+            text: "",
+          ),
+          SizedBox(height: 16,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
                 "Email",
                 style: GoogleFonts.nunito(
                   fontSize: 12,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   color: ColorStyles.black,
                 ),
               ),
             ],
           ),
 
-          //Akun UB
+          //Email UB
           TextFields(
             controller: emailController,
             textInputType: TextInputType.emailAddress,
             text: "@student.ub.ac.id",
           ),
-
-          SizedBox(height: 16,),
+          
+          SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -122,79 +141,30 @@ class _MasukPenjualState extends State<MasukPenjual> {
                 "Kata Sandi",
                 style: GoogleFonts.nunito(
                   fontSize: 12,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   color: ColorStyles.black,
                 ),
               ),
             ],
           ),
-          
           TextFieldsPassword(
             controller: passwordController, 
             textInputType: TextInputType.name, 
-            text: ""
-            ),
+            text: ""),
 
-          SizedBox(height: 8.5,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              RichText(
-                text: TextSpan(
-                    text: "Lupa password?",
-                    style: GoogleFonts.nunito(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w700,
-                    color: ColorStyles.darkGrey,
-                 ),
-                )
-              ),
-            ],
-          ),
-          SizedBox(height: 24,),
-
-          // PPP TOMBOL DISINIII
+          //PPP TOMBOL DISINII
+          SizedBox(height: 47,),
           Buttons(
-            text: "Masuk", 
+            text: "Daftar", 
+            round: 24,
             colorBackground: ColorStyles.secondary,
             colorText: ColorStyles.primaryBase,
-            width: mediaSize.width,
-            round: 24,
             onClicked: () => 
-            Navigator.push(context, MaterialPageRoute(builder: ((context) => ConfirmSpalshPage()))), 
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => ConfirmPenjual()))), 
+            width: mediaSize.width
           ),
 
-
-          SizedBox(height: 24,),
-          Text(
-            "atau masuk dengan",
-            style: GoogleFonts.nunito(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: ColorStyles.black,
-            ),
-          ),
-          SizedBox(height: 20),
-
-          //Button Image
-          Row(
-            children: [
-              ButtonsImage(
-                text: "Google",
-                 width: 122, 
-                 image: "assets/googleLogo.png", 
-                 onClicked: (){}),
-
-               SizedBox(width: 15),
-
-              ButtonsImage( 
-                text: "Facebook", 
-                width: 122, 
-                image: "assets/facebookLogo.png"
-              , onClicked: (){})
-            ],
-          ),
-          SizedBox(height: 24,),
+          SizedBox(height: 49,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -207,14 +177,14 @@ class _MasukPenjualState extends State<MasukPenjual> {
                 ),
                 children: [
                   TextSpan(
-                  text: " Daftar",
+                  text: " Masuk",
                   style: GoogleFonts.nunito(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                   color: ColorStyles.black,
                    ),
                    recognizer: TapGestureRecognizer()..onTap = () => 
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => DaftarPenjual()))),
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => MasukPenjual()))),
                   )
                  ]
                 )
@@ -222,7 +192,6 @@ class _MasukPenjualState extends State<MasukPenjual> {
             ],
           ),
 
-         
 
 
 

@@ -1,18 +1,18 @@
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/pages/fillprofile_page.dart';
+import 'package:mager_spot/app/pages/auth/daftar/fillprofile_page.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 
 
-class ConfirmSpalshPage extends StatefulWidget {
-  const ConfirmSpalshPage({super.key});
+class ConfirmPembeli extends StatefulWidget {
+  const ConfirmPembeli({super.key});
 
   @override
-  State<ConfirmSpalshPage> createState() => _ConfirmSpalshPageState();
+  State<ConfirmPembeli> createState() => _ConfirmPembeliState();
 }
 
-class _ConfirmSpalshPageState extends State<ConfirmSpalshPage> {
+class _ConfirmPembeliState extends State<ConfirmPembeli> {
 
   @override
   void initState() {

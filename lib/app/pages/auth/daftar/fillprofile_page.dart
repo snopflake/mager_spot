@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/pages/home_page.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/main_pembeli.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
@@ -46,7 +46,7 @@ class _FillProfilePageState extends State<FillProfilePage> {
                       color: ColorStyles.secondary,
                        ),
                        recognizer: TapGestureRecognizer()..onTap = () => 
-                       Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => HomePage()))),
+                       Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => MainPembeli()))),
                       )),
                 ],
               ),
@@ -167,14 +167,15 @@ class _FillProfilePageState extends State<FillProfilePage> {
                     ),
                               
                     SizedBox(height: 130),
-                              
+                    
+                    //Buttons disini
                     Buttons(
                       text: "Simpan", 
                       colorBackground: ColorStyles.secondary,
                       colorText: ColorStyles.primaryBase,
                       width: mediaSize.width, 
                       round: 24,
-                      onClicked: () => Navigator.push(context, MaterialPageRoute(builder: ((context) => HomePage()))
+                      onClicked: () => Navigator.push(context, MaterialPageRoute(builder: ((context) => MainPembeli()))
                     )),
                   ],
                 ),
