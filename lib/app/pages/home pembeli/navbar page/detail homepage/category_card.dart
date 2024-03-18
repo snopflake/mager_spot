@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/styles/category.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail%20homepage/category.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -14,13 +15,13 @@ class CategoryCard extends StatelessWidget {
       onTap: () {},
 
       child:  Container(
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(10.h.w),
         decoration: BoxDecoration(
           color: ColorStyles.lightGrey,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
           border: Border.all(
             color: ColorStyles.primary,
-            width: .09,
+            width: .09.w,
             ),
         ),
         child: Column(
@@ -32,18 +33,18 @@ class CategoryCard extends StatelessWidget {
               alignment: Alignment.topRight,
               child: Image.asset(
                 category.thumbnail,
-                height: 150,
+                height: 150.h,
               ),
             ),
 
-            SizedBox(height: 12,),
+            SizedBox(height: 12.h,),
 
              //Text
              Center(
                child: Text(
                 category.name,
                style: GoogleFonts.nunito(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.bold,
                 color: ColorStyles.primary
                ),),

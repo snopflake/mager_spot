@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
-import 'package:mager_spot/app/pages/auth/daftar/confirm_pembeli.dart';
-import 'package:mager_spot/app/pages/auth/daftar/daftar_pembeli_page.dart';
+import 'package:mager_spot/app/pages/auth/daftar/pembeli/daftar_pembeli.dart';
+import 'package:mager_spot/app/pages/auth/masuk/main_masuk.dart';
 import 'package:mager_spot/app/pages/home%20pembeli/main_pembeli.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
 import 'package:mager_spot/app/pages/widgets/buttons_image.dart';
@@ -9,6 +9,7 @@ import 'package:mager_spot/app/pages/widgets/text_fields_password.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MasukPembeli extends StatefulWidget {
   const MasukPembeli({super.key});
@@ -32,7 +33,7 @@ class _MasukPembeliState extends State<MasukPembeli> {
       child: Scaffold(
           backgroundColor: ColorStyles.primary,
           body: Stack(children: [
-            Positioned(top: 80, child: _buildAtas()),
+            Positioned(top: 58, child: _buildAtas()),
             Positioned(bottom: 0, child: _buildBawah())
           ],
         ),
@@ -41,27 +42,48 @@ class _MasukPembeliState extends State<MasukPembeli> {
 
   }
 
-  Widget _buildAtas() {
+   Widget _buildAtas() {
 
     return SizedBox(
       width: mediaSize.width,
-      child: Column( 
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Image.asset(
-            "assets/logoWhiteDua.png",
-            height: 200,
-            width: 200,
-          ),
-          SizedBox(height: 41)
-        ],
-
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
+        child: Column( 
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            
+            //Tombol back
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 32.w,
+                      height: 32.w,
+                      child: IconButton(
+                        onPressed: () =>
+                        Navigator.push(context, MaterialPageRoute(builder: ((context) => MainMasuk()))),  
+                        icon: Icon(
+                        Icons.arrow_back_ios_new_rounded, 
+                        color: ColorStyles.primaryBase,)
+                      ),
+                    ),
+                  ],
+                ),
+        
+            Image.asset(
+              "assets/logoWhiteDua.png",
+              height: 200.h,
+              width: 200.w,
+            ),
+            SizedBox(height: 41.h)
+          ],
+        
+        ),
       ),
 
 
     );
   }
-
   Widget _buildBawah() {
 
     return SizedBox(
@@ -69,8 +91,8 @@ class _MasukPembeliState extends State<MasukPembeli> {
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(36),
-            topRight: Radius.circular(36),
+            topLeft: Radius.circular(36.r),
+            topRight: Radius.circular(36.r),
           )
         ),
         child: _buildForm(),
@@ -88,19 +110,19 @@ class _MasukPembeliState extends State<MasukPembeli> {
           Text(
             "Selamat Datang Kembali!",
             style: GoogleFonts.nunito(
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w700,
               color: ColorStyles.black
             ),
           ),
-          SizedBox(height: 26,),
+          SizedBox(height: 26.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 "Email",
                 style: GoogleFonts.nunito(
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
                   color: ColorStyles.black,
                 ),
@@ -115,14 +137,14 @@ class _MasukPembeliState extends State<MasukPembeli> {
             text: "",
           ),
 
-          SizedBox(height: 16,),
+          SizedBox(height: 16.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 "Kata Sandi",
                 style: GoogleFonts.nunito(
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
                   color: ColorStyles.black,
                 ),
@@ -134,7 +156,7 @@ class _MasukPembeliState extends State<MasukPembeli> {
             textInputType: TextInputType.name, 
             text: "",
             ),
-          SizedBox(height: 8.5,),
+          SizedBox(height: 8.5.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -142,7 +164,7 @@ class _MasukPembeliState extends State<MasukPembeli> {
                 text: TextSpan(
                     text: "Lupa password?",
                     style: GoogleFonts.nunito(
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.w700,
                     color: ColorStyles.darkGrey,
                  ),
@@ -150,7 +172,7 @@ class _MasukPembeliState extends State<MasukPembeli> {
               ),
             ],
           ),
-          SizedBox(height: 24,),
+          SizedBox(height: 24.h,),
 
           // PPP TOMBOL DISINIII
           Buttons(
@@ -158,49 +180,49 @@ class _MasukPembeliState extends State<MasukPembeli> {
             colorBackground: ColorStyles.secondary,
             colorText: ColorStyles.primaryBase,
             width: mediaSize.width,
-            round: 24,
+            round: 24.r,
             onClicked: () => 
             Navigator.push(context, MaterialPageRoute(builder: ((context) => MainPembeli()))), 
           ),
 
 
-          SizedBox(height: 24,),
+          SizedBox(height: 24.h,),
           Text(
             "atau masuk dengan",
             style: GoogleFonts.nunito(
-              fontSize: 12,
+              fontSize: 12.sp,
               fontWeight: FontWeight.w400,
               color: ColorStyles.black,
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 20.h),
 
           //Button Image
           Row(
             children: [
               ButtonsImage(
                 text: "Google",
-                 width: 122, 
+                 width: 122.w, 
                  image: "assets/googleLogo.png", 
                  onClicked: (){}),
 
-               SizedBox(width: 15),
+               SizedBox(width: 15.h),
 
               ButtonsImage( 
                 text: "Facebook", 
-                width: 122, 
+                width: 122.w, 
                 image: "assets/facebookLogo.png"
               , onClicked: (){})
             ],
           ),
-          SizedBox(height: 24,),
+          SizedBox(height: 24.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               RichText(text: TextSpan(
               text: "Belum punya akun?",
                 style: GoogleFonts.nunito(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w400,
                 color: ColorStyles.black,
                 ),
@@ -208,7 +230,7 @@ class _MasukPembeliState extends State<MasukPembeli> {
                   TextSpan(
                   text: " Daftar",
                   style: GoogleFonts.nunito(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w700,
                   color: ColorStyles.black,
                    ),

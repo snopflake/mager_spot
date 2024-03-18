@@ -1,7 +1,8 @@
 import 'package:flutter/gestures.dart';
-import 'package:mager_spot/app/pages/auth/daftar/confirm_pembeli.dart';
-import 'package:mager_spot/app/pages/auth/daftar/confirm_penjual.dart';
-import 'package:mager_spot/app/pages/auth/masuk/masuk_penjual_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mager_spot/app/pages/auth/daftar/main_daftar.dart';
+import 'package:mager_spot/app/pages/auth/daftar/penjual/confirm_penjual.dart';
+import 'package:mager_spot/app/pages/auth/masuk/penjual/masuk_penjual.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields_password.dart';
@@ -32,7 +33,7 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
       child: Scaffold(
           backgroundColor: ColorStyles.primary,
           body: Stack(children: [
-            Positioned(top: 80, child: _buildAtas()),
+            Positioned(top: 68, child: _buildAtas()),
             Positioned(bottom: 0, child: _buildBawah())
           ],
         ),
@@ -45,17 +46,39 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
 
     return SizedBox(
       width: mediaSize.width,
-      child: Column( 
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Image.asset(
-            "assets/logoWhiteDua.png",
-            height: 200,
-            width: 200,
-          ),
-          SizedBox(height: 41)
-        ],
-
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
+        child: Column( 
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            
+            //Tombol back
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 32.w,
+                      height: 32.w,
+                      child: IconButton(
+                        onPressed: () =>
+                        Navigator.push(context, MaterialPageRoute(builder: ((context) => MainDaftar()))),  
+                        icon: Icon(
+                        Icons.arrow_back_ios_new_rounded, 
+                        color: ColorStyles.primaryBase,)
+                      ),
+                    ),
+                  ],
+                ),
+        
+            Image.asset(
+              "assets/logoWhiteDua.png",
+              height: 200.h,
+              width: 200.w,
+            ),
+            SizedBox(height: 41.h)
+          ],
+        
+        ),
       ),
 
 
@@ -69,8 +92,8 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(36),
-            topRight: Radius.circular(36),
+            topLeft: Radius.circular(36.r),
+            topRight: Radius.circular(36.r),
           )
         ),
         child: _buildForm(),
@@ -87,19 +110,19 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
           Text(
             "Selamat Datang!",
             style: GoogleFonts.nunito(
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w700,
               color: ColorStyles.black
             ),
           ),
-          SizedBox(height: 26,),
+          SizedBox(height: 26.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 "Nama",
                 style: GoogleFonts.nunito(
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w600,
                   color: ColorStyles.black,
                 ),
@@ -111,14 +134,14 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
             textInputType: TextInputType.name,
             text: "",
           ),
-          SizedBox(height: 16,),
+          SizedBox(height: 16.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 "Email",
                 style: GoogleFonts.nunito(
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w600,
                   color: ColorStyles.black,
                 ),
@@ -140,7 +163,7 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
               Text(
                 "Kata Sandi",
                 style: GoogleFonts.nunito(
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w600,
                   color: ColorStyles.black,
                 ),
@@ -153,10 +176,10 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
             text: ""),
 
           //PPP TOMBOL DISINII
-          SizedBox(height: 47,),
+          SizedBox(height: 47.h,),
           Buttons(
             text: "Daftar", 
-            round: 24,
+            round: 24.r,
             colorBackground: ColorStyles.secondary,
             colorText: ColorStyles.primaryBase,
             onClicked: () => 
@@ -164,14 +187,14 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
             width: mediaSize.width
           ),
 
-          SizedBox(height: 49,),
+          SizedBox(height: 49.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               RichText(text: TextSpan(
               text: "Belum punya akun?",
                 style: GoogleFonts.nunito(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w400,
                 color: ColorStyles.black,
                 ),
@@ -179,7 +202,7 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
                   TextSpan(
                   text: " Masuk",
                   style: GoogleFonts.nunito(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w700,
                   color: ColorStyles.black,
                    ),

@@ -1,10 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/home%20pembeli%20pages/detail%20homepage%20pembeli/category_card.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail%20homepage/category_card.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail%20homepage/search_screen_homepage.dart';
 import 'package:mager_spot/app/pages/widgets/search_bar.dart';
-import 'package:mager_spot/app/styles/category.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail%20homepage/category.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 
 class HomePagePembeli extends StatefulWidget {
@@ -75,32 +76,42 @@ class _HomePagePembeliState extends State<HomePagePembeli> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 59,),
+            SizedBox(height: 59.h,),
         
             //SearchBar + Wishlist
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: EdgeInsets.symmetric(horizontal: 16.h),
               child: Row(
                 children: [
-                  SearchBarKu(
-                    controller: searchController, 
-                    text: "Cari produk, toko, atau kategori"),
+
+                  InkWell(
+                    onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: ((context) => SearchScreenHomePage())));
+                    },
+
+                    child: SearchBarKu(
+                      controller: searchController, 
+                      text: "Cari produk, toko, atau kategori"),
+                  ),
+
+
                   IconButton(
                     onPressed: () {}, 
                     icon: Icon(Icons.favorite_border_rounded,)
                   ),
+
                 ],
               ),
             ),
 
-            SizedBox(height: 16,),
+            SizedBox(height: 16.h,),
             
             //Carousel
             Stack(
               children: [
                 SizedBox(
                   width: double.infinity,
-                  height: mediaSize.height / 4,
+                  height: mediaSize.height.h / 4,
                   child: PageView.builder(
                     controller: _pageController,
                     itemCount: imagePaths.length,
@@ -120,15 +131,15 @@ class _HomePagePembeliState extends State<HomePagePembeli> {
         
                 //page indicator
                 Positioned(
-                  bottom: 34,
-                  left: 74,
-                  right: 0,
+                  bottom: 34.h,
+                  left: 74.w,
+                  right: 0.w,
                   child: Container(
                     color: Colors.transparent,
                     child: Row(children: 
                       List<Widget>.generate(_pages.length, (index) => 
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          padding: EdgeInsets.symmetric(horizontal: 8.0.h),
                           child: InkWell(
                             onTap: () {
                               _pageController.animateToPage(
@@ -138,7 +149,7 @@ class _HomePagePembeliState extends State<HomePagePembeli> {
                                 );
                             },
                             child: CircleAvatar(
-                              radius: 4,
+                              radius: 4.r,
                               backgroundColor: _activePage == index 
                               ? ColorStyles.primary 
                               : ColorStyles.darkGrey
@@ -154,16 +165,16 @@ class _HomePagePembeliState extends State<HomePagePembeli> {
               ],
             ),
         
-            SizedBox(height: 16,),
+            SizedBox(height: 16.h,),
         
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(width: 16,),
+                SizedBox(width: 16.w,),
                 Text(
                   "Kategori", 
                   style: GoogleFonts.nunito(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                     color: ColorStyles.pureBlack,
                   )
@@ -176,8 +187,8 @@ class _HomePagePembeliState extends State<HomePagePembeli> {
               shrinkWrap: true,
               itemCount: categoryList.length,
               padding: EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 8,
+                horizontal: 20.w,
+                vertical: 8.h,
               ),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -211,7 +222,6 @@ class ImagePlaceHolder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       imagePath!,
-      fit: BoxFit.cover,
       );
   }
 }

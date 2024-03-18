@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mager_spot/app/pages/widgets/search_bar.dart';
 
 class SearchScreenHomePage extends StatefulWidget {
   const SearchScreenHomePage({super.key});
@@ -16,6 +17,7 @@ class _SearchScreenHomePageState extends State<SearchScreenHomePage> {
   Widget build(BuildContext context) {
 
     mediaSize = MediaQuery.of(context).size;
+    TextEditingController searchController = TextEditingController();
 
     return SafeArea(
       child: Scaffold(
@@ -31,7 +33,13 @@ class _SearchScreenHomePageState extends State<SearchScreenHomePage> {
                 padding:EdgeInsets.all(20),
                 child: Row(
                   children: [
-                    
+                    IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back_ios_rounded)),
+                    SizedBox(width: 8),
+                    SearchBarKu(
+                      controller: searchController,
+                      text: "Cari produk, toko, atau kategori")
+                  
+                  
                   ]),
                 ),
               )

@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
-import 'package:mager_spot/app/pages/auth/daftar/confirm_pembeli.dart';
-import 'package:mager_spot/app/pages/auth/masuk/masuk_pembeli_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mager_spot/app/pages/auth/daftar/main_daftar.dart';
+import 'package:mager_spot/app/pages/auth/daftar/pembeli/confirm_pembeli.dart';
+import 'package:mager_spot/app/pages/auth/masuk/pembeli/masuk_pembeli.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields_password.dart';
@@ -31,7 +33,7 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
       child: Scaffold(
           backgroundColor: ColorStyles.primary,
           body: Stack(children: [
-            Positioned(top: 80, child: _buildAtas()),
+            Positioned(top: 68, child: _buildAtas()),
             Positioned(bottom: 0, child: _buildBawah())
           ],
         ),
@@ -44,17 +46,39 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
 
     return SizedBox(
       width: mediaSize.width,
-      child: Column( 
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Image.asset(
-            "assets/logoWhiteDua.png",
-            height: 200,
-            width: 200,
-          ),
-          SizedBox(height: 41)
-        ],
-
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
+        child: Column( 
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            
+            //Tombol back
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 32.w,
+                      height: 32.w,
+                      child: IconButton(
+                        onPressed: () =>
+                        Navigator.push(context, MaterialPageRoute(builder: ((context) => MainDaftar()))),  
+                        icon: Icon(
+                        Icons.arrow_back_ios_new_rounded, 
+                        color: ColorStyles.primaryBase,)
+                      ),
+                    ),
+                  ],
+                ),
+        
+            Image.asset(
+              "assets/logoWhiteDua.png",
+              height: 200.h,
+              width: 200.w,
+            ),
+            SizedBox(height: 41.h)
+          ],
+        
+        ),
       ),
 
 
@@ -64,12 +88,12 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
   Widget _buildBawah() {
 
     return SizedBox(
-      width: mediaSize.width,
+      width: mediaSize.width.w,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(36),
-            topRight: Radius.circular(36),
+            topLeft: Radius.circular(36.r),
+            topRight: Radius.circular(36.r),
           )
         ),
         child: _buildForm(),
@@ -80,25 +104,25 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
 
   Widget _buildForm() {
     return Padding(
-      padding: const EdgeInsets.only(top: 32, bottom: 66, left: 54, right: 54),
+      padding: EdgeInsets.only(top: 32.h, bottom: 66.h, left: 54.w, right: 54.w),
       child: Column(
         children: [
           Text(
             "Selamat Datang!",
             style: GoogleFonts.nunito(
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w700,
               color: ColorStyles.black
             ),
           ),
-          SizedBox(height: 26,),
+          SizedBox(height: 26.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 "Nama",
                 style: GoogleFonts.nunito(
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w600,
                   color: ColorStyles.black,
                 ),
@@ -110,14 +134,14 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
             textInputType: TextInputType.name,
             text: "",
           ),
-          SizedBox(height: 16,),
+          SizedBox(height: 16.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 "Email",
                 style: GoogleFonts.nunito(
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w600,
                   color: ColorStyles.black,
                 ),
@@ -132,14 +156,14 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
             text: "",
           ),
 
-          SizedBox(height: 16),
+          SizedBox(height: 16.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 "Kata Sandi",
                 style: GoogleFonts.nunito(
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w600,
                   color: ColorStyles.black,
                 ),
@@ -152,10 +176,10 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
             text: ""),
 
           //PPP TOMBOL DISINII
-          SizedBox(height: 47,),
+          SizedBox(height: 47.h,),
           Buttons(
             text: "Daftar", 
-            round: 24,
+            round: 24.r,
             colorBackground: ColorStyles.secondary,
             colorText: ColorStyles.primaryBase,
             onClicked: () => 
@@ -163,14 +187,14 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
             width: mediaSize.width
           ),
 
-          SizedBox(height: 49,),
+          SizedBox(height: 49.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               RichText(text: TextSpan(
               text: "Belum punya akun?",
                 style: GoogleFonts.nunito(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w400,
                 color: ColorStyles.black,
                 ),
@@ -178,7 +202,7 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
                   TextSpan(
                   text: " Masuk",
                   style: GoogleFonts.nunito(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w700,
                   color: ColorStyles.black,
                    ),

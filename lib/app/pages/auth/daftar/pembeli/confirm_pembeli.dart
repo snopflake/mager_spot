@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/pages/auth/daftar/fillprofile_page.dart';
+import 'package:mager_spot/app/pages/auth/daftar/pembeli/fillprofile_page.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 

@@ -1,18 +1,20 @@
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/pages/auth/masuk/masuk_pembeli_page.dart';
-import 'package:mager_spot/app/pages/auth/masuk/masuk_penjual_page.dart';
+import 'package:mager_spot/app/pages/auth/auth_page.dart';
+import 'package:mager_spot/app/pages/auth/masuk/pembeli/masuk_pembeli.dart';
+import 'package:mager_spot/app/pages/auth/masuk/penjual/masuk_penjual.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AuthMasukPage extends StatefulWidget {
-  const AuthMasukPage({super.key});
+class MainMasuk extends StatefulWidget {
+  const MainMasuk({super.key});
 
   @override
-  State<AuthMasukPage> createState() => _AuthMasukPageState();
+  State<MainMasuk> createState() => _MainMasukState();
 }
 
-class _AuthMasukPageState extends State<AuthMasukPage> {
+class _MainMasukState extends State<MainMasuk> {
 
   late Size mediaSize;
 
@@ -29,25 +31,47 @@ class _AuthMasukPageState extends State<AuthMasukPage> {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 210,),
+
+              SizedBox(height: 67.h,),
+
+               //Tombol back
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 32.w,
+                    height: 32.w,
+                    child: IconButton(
+                      onPressed: () =>
+                      Navigator.push(context, MaterialPageRoute(builder: ((context) => AuthPage()))),  
+                      icon: Icon(
+                      Icons.arrow_back_ios_new_rounded, 
+                      color: ColorStyles.primaryBase,)
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 111.h,),
+
               Image.asset(
                 "assets/logoWhite.png",
-                width: 200,
-                height: 204,
+                width: 200.w,
+                height: 204.h,
               ),
-              SizedBox(height: 16,),
+              SizedBox(height: 16.h,),
 
               //Slogan
               Text(
                 "Temukan Semua yang Anda Butuhkan dalam Satu Aplikasi",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.nunito(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w700,
                   color: ColorStyles.primaryBase,
                 ),
               ),
-              SizedBox(height: 210,),
+              SizedBox(height: 187.h,),
         
               //Button Daftar Penjual
               Buttons(
@@ -55,12 +79,12 @@ class _AuthMasukPageState extends State<AuthMasukPage> {
                 colorBackground: ColorStyles.secondary,
                 colorText: ColorStyles.primaryBase,
                 width: mediaSize.width, 
-                round: 12,
+                round: 12.r,
                 onClicked: () =>
                 Navigator.push(context, MaterialPageRoute(builder: ((context) => MasukPenjual()))), 
               ),
 
-              SizedBox(height: 12,),
+              SizedBox(height: 12.h),
 
               //Button Daftar Pembeli
               Buttons(
@@ -68,12 +92,12 @@ class _AuthMasukPageState extends State<AuthMasukPage> {
                 colorBackground: ColorStyles.primaryBase, 
                 colorText: ColorStyles.secondary,
                 width: mediaSize.width, 
-                round: 12, 
+                round: 12.r, 
                 onClicked: () =>
                 Navigator.push(context, MaterialPageRoute(builder: ((context) => MasukPembeli()))), 
               ),
 
-
+              SizedBox(height: 64.h,)
 
         
           
