@@ -222,8 +222,11 @@ class _MasukPenjualState extends State<MasukPenjual> {
             colorText: ColorStyles.primaryBase,
             width: mediaSize.width.w,
             round: 24.r,
-            onClicked: () => Navigator.push(context,
-                MaterialPageRoute(builder: ((context) => MainPenjual()))),
+            onClicked: () {
+                context
+                    .read<AuthCubit>()
+                    .login(emailController.text, passwordController.text);
+              },
           ),
 
           SizedBox(

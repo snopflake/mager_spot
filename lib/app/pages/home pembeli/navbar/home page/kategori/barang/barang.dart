@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mager_spot/app/pages/home%20pembeli/main_pembeli.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/homepage_pembeli.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/category_card.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/search_screen_homepage.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/search_bar.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/category.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/homepage_pembeli.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/widget%20homepage/category_card.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/widget%20homepage/search_screen_homepage.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/widget%20homepage/search_bar.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/widget%20homepage/category.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 
-class InformasiKos extends StatelessWidget {
-  const InformasiKos({super.key});
+class Barang extends StatelessWidget {
+  const Barang({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class InformasiKos extends StatelessWidget {
 
         //Judul Appbar
         backgroundColor: ColorStyles.primary,
-        title: Text("Informasi Kos", 
+        title: Text("Barang", 
           style: GoogleFonts.nunito(
             fontSize: 20.sp,
             fontWeight: FontWeight.bold,

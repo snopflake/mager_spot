@@ -1,17 +1,13 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mager_spot/app/pages/home%20pembeli/main_pembeli.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/homepage_pembeli.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/category_card.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/search_screen_homepage.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/search_bar.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/category.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/kategori/makanan/widget%20makanan/makanan_card.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/widget%20homepage/search_bar.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 
-class Barang extends StatelessWidget {
-  const Barang({super.key});
+class Makanan extends StatelessWidget {
+  const Makanan({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +30,7 @@ class Barang extends StatelessWidget {
 
         //Judul Appbar
         backgroundColor: ColorStyles.primary,
-        title: Text("Barang", 
+        title: Text("Makanan", 
           style: GoogleFonts.nunito(
             fontSize: 20.sp,
             fontWeight: FontWeight.bold,
@@ -46,14 +42,37 @@ class Barang extends StatelessWidget {
       //Body
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          children: [
-            SizedBox(height: 16.h,),
-
-        
-        
-        
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 16.h,),
+          
+              //SearchBar
+              Center(
+                child: SearchBarKu(
+                  controller: makananController, 
+                  text: "Cari makanan favoritmu!"
+                ),
+              ),
+          
+              SizedBox(height: 16.h),
+          
+              //Filter
+              SizedBox(height: 26.h),
+          
+              SizedBox(height: 16,),
+          
+              MakananCard(
+                judul: "resep", 
+                harga: "Rp.20.0000", 
+                rating: "4.5", 
+                gambar: ""
+                ),
+          
+          
+          
+            ],
+          ),
         ),
       ),
     );

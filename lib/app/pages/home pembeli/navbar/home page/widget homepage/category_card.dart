@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/kategori/barang.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/kategori/informasi_kos.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/kategori/makanan.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/kategori/ojek_online.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/category.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/kategori/barang/barang.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/kategori/informasi%20kos/informasi_kos.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/kategori/makanan/makanan.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/kategori/ojek%20online/ojek_online.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/widget%20homepage/category.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -18,22 +18,22 @@ class CategoryCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
          if (category.name == "OJEK ONLINE") {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => OjekOnline()),
           );
         } else if (category.name == "MAKANAN") {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => Makanan()),
           );
         } else if (category.name == "INFORMASI KOS") {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => InformasiKos()),
           );
         } else if (category.name == "BARANG") {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => Barang()),
           );

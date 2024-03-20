@@ -220,10 +220,9 @@ class _MasukPembeliState extends State<MasukPembeli> {
             width: mediaSize.width,
             round: 24.r,
             onClicked: () {
-                context
-                    .read<AuthCubit>()
-                    .login(emailController.text, passwordController.text);
-              },
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (_) => const MainPembeli()));
+                },
           ),
 
           SizedBox(

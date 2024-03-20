@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/history_pembeli.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/homepage_pembeli.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/profil_pembeli.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/history%20page/history_pembeli.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/homepage_pembeli.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar/profil%20page/profil_pembeli.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 
 class MainPembeli extends StatefulWidget {
