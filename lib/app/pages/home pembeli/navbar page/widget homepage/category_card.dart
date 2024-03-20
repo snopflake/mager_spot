@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail%20homepage/category.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail/barang.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail/informasi_kos.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail/makanan.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail/ojek_online.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/category.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -12,7 +16,29 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+         if (category.name == "OJEK ONLINE") {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => OjekOnline()),
+          );
+        } else if (category.name == "MAKANAN") {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => Makanan()),
+          );
+        } else if (category.name == "INFORMASI KOS") {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => InformasiKos()),
+          );
+        } else if (category.name == "BARANG") {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => Barang()),
+          );
+        }
+      },
 
       child:  Container(
         padding: EdgeInsets.all(10.h.w),

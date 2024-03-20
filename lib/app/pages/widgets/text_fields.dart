@@ -8,12 +8,13 @@ class TextFields extends StatefulWidget {
       required this.controller,
       required this.textInputType,
       required this.text,
-      
+      required this.onChanged,
   }) : super(key: key);
 
   final TextEditingController controller;
   final TextInputType textInputType;
   final String text;
+  final Function(String) onChanged;
 
   @override
   State<TextFields> createState() => _TextFieldsState();
@@ -21,6 +22,18 @@ class TextFields extends StatefulWidget {
 }
 
 class _TextFieldsState extends State<TextFields> {
+
+ bool isNotEmpty = false;
+ 
+   @override
+  void initState() {
+    super.initState();
+    if (widget.controller.text.isNotEmpty) {
+      setState(() {
+        isNotEmpty = true;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,9 +20,13 @@ class SearchBarKu extends StatefulWidget {
 class _SearchBarKuState extends State<SearchBarKu> {
   @override
   Widget build(BuildContext context) {
+
+  late Size mediaSize;
+  mediaSize = MediaQuery.of(context).size;
+  
     return SizedBox(
-      width: 311,
-      height: 40,
+      width: 311.w,
+      height: 40.h,
       child: TextFormField(
 
         controller: widget.controller,
@@ -34,7 +39,7 @@ class _SearchBarKuState extends State<SearchBarKu> {
 
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.fromLTRB(16, 0, 12, 0),
-
+        
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: const BorderSide(width: 1),

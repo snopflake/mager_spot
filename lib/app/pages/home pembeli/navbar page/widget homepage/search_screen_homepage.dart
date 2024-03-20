@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mager_spot/app/pages/widgets/search_bar.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/search_bar.dart';
 
 class SearchScreenHomePage extends StatefulWidget {
   const SearchScreenHomePage({super.key});

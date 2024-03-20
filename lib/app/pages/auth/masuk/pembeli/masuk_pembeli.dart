@@ -24,6 +24,16 @@ class _MasukPembeliState extends State<MasukPembeli> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+   bool isClickable = false;
+
+  void checkClickable() {
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+    setState(() {
+      isClickable = email.isNotEmpty && password.isNotEmpty;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -135,6 +145,11 @@ class _MasukPembeliState extends State<MasukPembeli> {
             controller: emailController,
             textInputType: TextInputType.emailAddress,
             text: "",
+            onChanged: (text) {
+                setState(() {
+                  checkClickable();
+              });
+             },
           ),
 
           SizedBox(height: 16.h,),
@@ -155,6 +170,11 @@ class _MasukPembeliState extends State<MasukPembeli> {
             controller: passwordController, 
             textInputType: TextInputType.name, 
             text: "",
+            onChanged: (text) {
+                setState(() {
+                  checkClickable();
+              });
+             },
             ),
           SizedBox(height: 8.5.h),
           Row(

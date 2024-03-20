@@ -24,6 +24,16 @@ class _MasukPenjualState extends State<MasukPenjual> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  bool isClickable = false;
+
+  void checkClickable() {
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+    setState(() {
+      isClickable = email.isNotEmpty && password.isNotEmpty;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -136,6 +146,11 @@ class _MasukPenjualState extends State<MasukPenjual> {
             controller: emailController,
             textInputType: TextInputType.emailAddress,
             text: "@student.ub.ac.id",
+             onChanged: (text) {
+                setState(() {
+                  checkClickable();
+              });
+             },
           ),
 
           SizedBox(height: 16.h,),
@@ -156,7 +171,12 @@ class _MasukPenjualState extends State<MasukPenjual> {
           TextFieldsPassword(
             controller: passwordController, 
             textInputType: TextInputType.name, 
-            text: ""
+            text: "",
+             onChanged: (text) {
+                setState(() {
+                  checkClickable();
+              });
+             },
             ),
 
           SizedBox(height: 8.5,),
@@ -238,7 +258,7 @@ class _MasukPenjualState extends State<MasukPenjual> {
                   color: ColorStyles.black,
                    ),
                    recognizer: TapGestureRecognizer()..onTap = () => 
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => DaftarPenjual()))),
+                   Navigator.push(context, MaterialPageRoute(builder: ((context) => DaftarPenjual()))),
                   )
                  ]
                 )

@@ -1,14 +1,18 @@
 import 'package:flutter/gestures.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mager_spot/app/pages/auth/daftar/main_daftar.dart';
 import 'package:mager_spot/app/pages/auth/daftar/pembeli/confirm_pembeli.dart';
 import 'package:mager_spot/app/pages/auth/masuk/pembeli/masuk_pembeli.dart';
 import 'package:mager_spot/app/pages/widgets/buttons.dart';
+import 'package:mager_spot/app/pages/widgets/loading.dart';
+import 'package:mager_spot/app/pages/widgets/snackbar.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields.dart';
 import 'package:mager_spot/app/pages/widgets/text_fields_password.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mager_spot/cubit/auth/auth_cubit.dart';
 
 class DaftarPembeli extends StatefulWidget {
   const DaftarPembeli({super.key});
@@ -24,6 +28,17 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController namaController = TextEditingController();
 
+  bool isClickable = false;
+
+  void checkClickable() {
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+    final nama = namaController.text.trim();
+    setState(() {
+      isClickable = email.isNotEmpty && password.isNotEmpty && nama.isNotEmpty;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -32,11 +47,28 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
     return Container(
       child: Scaffold(
           backgroundColor: ColorStyles.primary,
-          body: Stack(children: [
-            Positioned(top: 68, child: _buildAtas()),
-            Positioned(bottom: 0, child: _buildBawah())
-          ],
-        ),
+          body:
+           BlocConsumer<AuthCubit, AuthState>(
+             listener: (context, state) {
+               if (state is AuthSuccess) {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (_) => const ConfirmPembeli())
+                );
+               } else if (state is AuthError) {
+                showSnackBarWidget(context, state.error);
+               }
+             },
+             builder: (context, state) {
+              if (state is AuthLoading) {
+                return const Loading();
+              }
+               return Stack(children: [
+                       Positioned(top: 68, child: _buildAtas()),
+                       Positioned(bottom: 0, child: _buildBawah())
+                     ],
+                   );
+             },
+           ),
       ),
     );
 
@@ -133,6 +165,11 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
             controller: namaController,
             textInputType: TextInputType.name,
             text: "",
+             onChanged: (text) {
+                setState(() {
+                  checkClickable();
+              });
+             },
           ),
           SizedBox(height: 16.h,),
           Row(
@@ -154,6 +191,11 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
             controller: emailController,
             textInputType: TextInputType.emailAddress,
             text: "",
+            onChanged: (text) {
+                setState(() {
+                  checkClickable();
+              });
+             },
           ),
 
           SizedBox(height: 16.h),
@@ -173,7 +215,13 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
           TextFieldsPassword(
             controller: passwordController, 
             textInputType: TextInputType.name, 
-            text: ""),
+            text: "",
+            onChanged: (text) {
+                setState(() {
+                  checkClickable();
+              });
+             },
+            ),
 
           //PPP TOMBOL DISINII
           SizedBox(height: 47.h,),
@@ -182,8 +230,10 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
             round: 24.r,
             colorBackground: ColorStyles.secondary,
             colorText: ColorStyles.primaryBase,
-            onClicked: () => 
-            Navigator.push(context, MaterialPageRoute(builder: ((context) => ConfirmPembeli()))), 
+             onClicked: () {
+                context.read<AuthCubit>().register(
+                namaController.text, emailController.text, passwordController.text);
+            },
             width: mediaSize.width
           ),
 

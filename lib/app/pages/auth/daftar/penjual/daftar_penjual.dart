@@ -24,6 +24,17 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController namaController = TextEditingController();
 
+  bool isClickable = false;
+
+  void checkClickable() {
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+    final nama = namaController.text.trim();
+    setState(() {
+      isClickable = email.isNotEmpty && password.isNotEmpty && nama.isNotEmpty;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -133,6 +144,11 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
             controller: namaController,
             textInputType: TextInputType.name,
             text: "",
+            onChanged: (text) {
+                setState(() {
+                  checkClickable();
+              });
+             },
           ),
           SizedBox(height: 16.h,),
           Row(
@@ -154,6 +170,11 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
             controller: emailController,
             textInputType: TextInputType.emailAddress,
             text: "@student.ub.ac.id",
+            onChanged: (text) {
+                setState(() {
+                  checkClickable();
+              });
+             },
           ),
           
           SizedBox(height: 16),
@@ -173,7 +194,13 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
           TextFieldsPassword(
             controller: passwordController, 
             textInputType: TextInputType.name, 
-            text: ""),
+            text: "",
+            onChanged: (text) {
+                setState(() {
+                  checkClickable();
+              });
+             },
+            ),
 
           //PPP TOMBOL DISINII
           SizedBox(height: 47.h,),

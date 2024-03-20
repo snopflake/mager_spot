@@ -19,6 +19,17 @@ class _FillProfilePageState extends State<FillProfilePage> {
   TextEditingController noTelpController= TextEditingController();
   TextEditingController alamatController= TextEditingController();
 
+  bool isClickable = false;
+
+  void checkClickable() {
+    final username = usernameController.text.trim();
+    final noTelp = noTelpController.text.trim();
+    final alamat = alamatController.text.trim();
+    setState(() {
+      isClickable = username.isNotEmpty && noTelp.isNotEmpty && alamat.isNotEmpty;
+    });
+  }
+
   late Size mediaSize;
 
   @override
@@ -122,6 +133,11 @@ class _FillProfilePageState extends State<FillProfilePage> {
                     controller: usernameController,
                     textInputType: TextInputType.emailAddress,
                     text: "",
+                    onChanged: (text) {
+                      setState(() {
+                        checkClickable();
+                        });
+                      },
                     ),
                               
                     SizedBox(height: 16),
@@ -143,6 +159,11 @@ class _FillProfilePageState extends State<FillProfilePage> {
                     controller: noTelpController,
                     textInputType: TextInputType.name,
                     text: "",
+                    onChanged: (text) {
+                      setState(() {
+                        checkClickable();
+                        });
+                      },
                     ),
                               
                     SizedBox(height: 16),
@@ -164,6 +185,11 @@ class _FillProfilePageState extends State<FillProfilePage> {
                     controller: alamatController,
                     textInputType: TextInputType.name,
                     text: "",
+                    onChanged: (text) {
+                      setState(() {
+                        checkClickable();
+                        });
+                      },
                     ),
                               
                     SizedBox(height: 130),

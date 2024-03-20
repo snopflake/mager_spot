@@ -2,10 +2,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail%20homepage/category_card.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail%20homepage/search_screen_homepage.dart';
-import 'package:mager_spot/app/pages/widgets/search_bar.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail%20homepage/category.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/category_card.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/search_screen_homepage.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/search_bar.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/category.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 
 class HomePagePembeli extends StatefulWidget {
