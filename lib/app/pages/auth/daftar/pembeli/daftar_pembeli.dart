@@ -31,9 +31,9 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
   bool isClickable = false;
 
   void checkClickable() {
+    final nama = namaController.text.trim();
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
-    final nama = namaController.text.trim();
     setState(() {
       isClickable = email.isNotEmpty && password.isNotEmpty && nama.isNotEmpty;
     });

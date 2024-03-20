@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail/barang.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail/informasi_kos.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail/makanan.dart';
-import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/detail/ojek_online.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/kategori/barang.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/kategori/informasi_kos.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/kategori/makanan.dart';
+import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/kategori/ojek_online.dart';
 import 'package:mager_spot/app/pages/home%20pembeli/navbar%20page/widget%20homepage/category.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
 
