@@ -230,7 +230,7 @@ class _DaftarPembeliState extends State<DaftarPembeli> {
             round: 24.r,
             colorBackground: ColorStyles.secondary,
             colorText: ColorStyles.primaryBase,
-             onClicked: () {
+            onClicked: () {
                 context.read<AuthCubit>().register(
                 namaController.text, emailController.text, passwordController.text);
             },

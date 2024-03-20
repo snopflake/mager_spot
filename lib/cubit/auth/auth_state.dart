@@ -18,5 +18,3 @@ final class AuthError extends AuthState {
 final class Authenticated extends AuthState {}
 
 final class Unauthenticated extends AuthState {}
-
-final class LoggingOut extends AuthState {}
