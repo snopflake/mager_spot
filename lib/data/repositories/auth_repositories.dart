@@ -18,14 +18,13 @@ class AuthRepository {
     return false;
   }
 
-  Future<bool> loginRepository(String username, String password) async {
+ Future<bool> loginRepository(String username, String password) async {
     try {
       final response = await _dio.post(Api.getLoginEndpoint(),
           data: {"username": username, "password": password});
 
       if (response.statusCode == 200) {
-        final data = response.data["data"];
-        final token = data["token"];
+        final token = response.data["token"];
         await UserLocalStorage.addUserToken(token);
         return true;
       } else {
