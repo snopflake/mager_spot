@@ -24,16 +24,16 @@ class MasukPenjual extends StatefulWidget {
 
 class _MasukPenjualState extends State<MasukPenjual> {
   late Size mediaSize;
-  TextEditingController emailController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   bool isClickable = false;
 
   void checkClickable() {
-    final email = emailController.text.trim();
+    final username = usernameController.text.trim();
     final password = passwordController.text.trim();
     setState(() {
-      isClickable = email.isNotEmpty && password.isNotEmpty;
+      isClickable = username.isNotEmpty && password.isNotEmpty;
     });
   }
 
@@ -144,7 +144,7 @@ class _MasukPenjualState extends State<MasukPenjual> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "Email",
+                "Username",
                 style: GoogleFonts.nunito(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
@@ -156,9 +156,9 @@ class _MasukPenjualState extends State<MasukPenjual> {
 
           //Akun UB
           TextFields(
-            controller: emailController,
-            textInputType: TextInputType.emailAddress,
-            text: "@student.ub.ac.id",
+            controller: usernameController,
+            textInputType: TextInputType.name,
+            text: "",
             onChanged: (text) {
               setState(() {
                 checkClickable();
@@ -225,7 +225,7 @@ class _MasukPenjualState extends State<MasukPenjual> {
             onClicked: () {
                 context
                     .read<AuthCubit>()
-                    .login(emailController.text, passwordController.text);
+                    .login(usernameController.text, passwordController.text);
               },
           ),
 

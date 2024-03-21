@@ -9,7 +9,7 @@ class AuthRepository {
     try {
       final response = await _dio.post(Api.getRegisterEndpoint(),
           data: {"username": username, "email": email, "password": password});
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         return true;
       }
     } catch (e) {
@@ -18,10 +18,10 @@ class AuthRepository {
     return false;
   }
 
-  Future<bool> loginRepository(String email, String password) async {
+  Future<bool> loginRepository(String username, String password) async {
     try {
       final response = await _dio.post(Api.getLoginEndpoint(),
-          data: {"email": email, "password": password});
+          data: {"username": username, "password": password});
 
       if (response.statusCode == 200) {
         final data = response.data["data"];

@@ -25,11 +25,11 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void login(String email, String password) async {
+  void login(String username, String password) async {
     try {
       emit(AuthLoading());
 
-      var response = await _authRepository.loginRepository(email, password);
+      var response = await _authRepository.loginRepository(username, password);
 
       if (response == true) {
         emit(AuthSuccess());

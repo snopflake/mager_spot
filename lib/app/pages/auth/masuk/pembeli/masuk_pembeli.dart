@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mager_spot/app/pages/auth/daftar/pembeli/confirm_pembeli.dart';
 import 'package:mager_spot/app/pages/auth/daftar/pembeli/daftar_pembeli.dart';
 import 'package:mager_spot/app/pages/auth/masuk/main_masuk.dart';
 import 'package:mager_spot/app/pages/home%20pembeli/main_pembeli.dart';
@@ -25,16 +24,16 @@ class MasukPembeli extends StatefulWidget {
 
 class _MasukPembeliState extends State<MasukPembeli> {
   late Size mediaSize;
-  TextEditingController emailController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   bool isClickable = false;
 
   void checkClickable() {
-    final email = emailController.text.trim();
+    final username = usernameController.text.trim();
     final password = passwordController.text.trim();
     setState(() {
-      isClickable = email.isNotEmpty && password.isNotEmpty;
+      isClickable = username.isNotEmpty && password.isNotEmpty;
     });
   }
 
@@ -145,7 +144,7 @@ class _MasukPembeliState extends State<MasukPembeli> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "Email",
+                "Username",
                 style: GoogleFonts.nunito(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
@@ -157,8 +156,8 @@ class _MasukPembeliState extends State<MasukPembeli> {
 
           //Bukan Akun UB
           TextFields(
-            controller: emailController,
-            textInputType: TextInputType.emailAddress,
+            controller: usernameController,
+            textInputType: TextInputType.name,
             text: "",
             onChanged: (text) {
               setState(() {
@@ -220,9 +219,10 @@ class _MasukPembeliState extends State<MasukPembeli> {
             width: mediaSize.width,
             round: 24.r,
             onClicked: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (_) => const MainPembeli()));
-                },
+                context
+                    .read<AuthCubit>()
+                    .login(usernameController.text, passwordController.text);
+              },
           ),
 
           SizedBox(

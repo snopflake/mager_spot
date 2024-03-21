@@ -1,17 +1,17 @@
 import 'dart:convert';
 
-Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
+MakananModel MakananModelFromJson(String str) => MakananModel.fromJson(json.decode(str));
 
-String welcomeToJson(Welcome data) => json.encode(data.toJson());
+String MakananModelToJson(MakananModel data) => json.encode(data.toJson());
 
-class Welcome {
+class MakananModel {
     List<FoodPost> foodPosts;
 
-    Welcome({
+    MakananModel({
         required this.foodPosts,
     });
 
-    factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+    factory MakananModel.fromJson(Map<String, dynamic> json) => MakananModel(
         foodPosts: List<FoodPost>.from(json["foodPosts"].map((x) => FoodPost.fromJson(x))),
     );
 

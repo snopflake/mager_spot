@@ -192,7 +192,7 @@ class _DaftarPenjualState extends State<DaftarPenjual> {
             },
           ),
 
-          SizedBox(height: 16),
+          SizedBox(height: 16.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
