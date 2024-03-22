@@ -43,7 +43,7 @@ _Sabtu, 23 Maret 2024, 04.33 AM_
 
 Rangkaian pesan singkat ini terbit sebagai permintaan maaf kepada seluruh anggota BCC Intern 11 dan segala pihak yang terkait, karena hingga pesan ini dibuat, saya sebagai front-end... hanya mampu menyelesaikan mvp login register atau fitur autentikasi. Mohon maaf sebesar-besarnya kepada setiap anggota, yaitu Nabil sebagai PM, Anggun sebagai PD, dam Komang sebagai BE. Juga terima kasih atas segala dukungan dan kerja kerasnya untuk satu bulan ini... dalam satu bulan yang sangat _asik_ ini saya belajar dan mendapat banyak pengalaman yang tidak akan saya lupakan... mulai dikejar timer waktu latihan presentasi, terhura hira ketika auth login sukses nyambung ke API, hingga nongkrong di Figma sampai sahur bareng Anggun ( *^-^)ρ(*╯^╰).
 
-Lalu juga terima kasih kepada seluruh mentor BCC yang telah memberi ilmunya selama satu bulan ini, ilmunya bener-bener ilmu mahal! Maaf jika tidak bisa mengimplementasi semua dari ilmu itu untuk jadi nyata, tapi berkesempatan untuk mengikuti intern ini hingga selesai merupakan pengalaman yang tak terlupakan!
+Lalu juga terima kasih kepada seluruh mentor BCC yang telah memberi ilmunya selama satu bulan ini, ilmunya bener-bener ilmu mahal! Maaf jika tidak bisa mengimplementasi semua dari ilmu itu untuk jadi nyata, tapi berkesempatan untuk mengikuti intern ini bersama BCC Intern 11 hingga selesai merupakan pengalaman yang tak terlupakan!
 
 Sekali lagi terima kasih,
 
@@ -51,10 +51,13 @@ Sekali lagi terima kasih,
 Semoga sukses BCC Intern 11!
 🚀✨👩‍🚀👩‍🚀.👨‍🚀👨‍🚀
 
-
-
-
-
+.
+.
+.
+.
+.
+.
+.
 
 Tertanda 
 
