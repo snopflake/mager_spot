@@ -34,14 +34,25 @@
 
 
 -----------------------------------------------------------------------------------------------------
-_🏳🏳Bendera Putih Berkibar🏳🏳_
+_🏳🏳🏳_
 -----------------------------------------------------------------------------------------------------
+
+**Bendera Putih Berkibar**
+
+
+.
+
+.
+
+.
+
 
 Pesan ini dibuat pada:
 
 _Sabtu, 23 Maret 2024, 04.33 AM_
 
-Rangkaian pesan singkat ini terbit sebagai permintaan maaf kepada seluruh anggota BCC Intern 11 dan segala pihak yang terkait, karena hingga pesan ini dibuat, saya sebagai front-end... belum bisa menyelesaikan seluruh MVP yang diharapkan. Mohon maaf sebesar-besarnya kepada setiap anggota, yaitu Nabil sebagai PM, Anggun sebagai PD, dam Komang sebagai BE. Juga terima kasih atas segala dukungan dan kerja kerasnya untuk satu bulan ini... dalam satu bulan yang sangat _asik_ ini saya belajar dan mendapat banyak pengalaman yang tidak akan saya lupakan... mulai dikejar timer waktu latihan presentasi, terhura hira ketika auth login sukses nyambung ke API, hingga nongkrong di Figma sampai sahur bareng Anggun ( *^-^)ρ(*╯^╰).
+
+Rangkaian pesan singkat ini terbit sebagai permintaan maaf kepada seluruh anggota BCC Intern 11 dan segala pihak yang terkait, karena hingga pesan ini dibuat, saya sebagai front-end, belum bisa menyelesaikan seluruh MVP yang diharapkan. Mohon maaf sebesar-besarnya kepada setiap anggota, yaitu Nabil sebagai PM, Anggun sebagai PD, dam Komang sebagai BE. Juga terima kasih atas segala dukungan dan kerja kerasnya untuk satu bulan ini. Dalam satu bulan yang sangat _asik_ ini saya belajar dan mendapat banyak pengalaman yang tidak akan saya lupakan: mulai dikejar timer waktu latihan presentasi, terhura hira ketika auth login sukses nyambung ke API, hingga nongkrong di Figma sampai sahur bareng Anggun ( *^-^)ρ(*╯^╰).
 
 Lalu juga terima kasih kepada seluruh mentor BCC yang telah memberi ilmunya selama satu bulan ini, ilmunya bener-bener ilmu mahal! Maaf jika tidak bisa mengimplementasi semua dari ilmu itu untuk jadi nyata, tapi berkesempatan untuk mengikuti intern ini bersama BCC Intern 11 hingga selesai merupakan pengalaman yang tak terlupakan!
 
@@ -61,4 +72,6 @@ Semoga sukses BCC Intern 11!
 
 Tertanda 
 
-User github: snopflake＜（＾－＾）＞
+User github: snopflake
+
+😇😇😇🙏🙏🙏
