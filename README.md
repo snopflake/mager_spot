@@ -47,10 +47,15 @@ Lalu juga terima kasih kepada seluruh mentor BCC yang telah memberi ilmunya sela
 
 Sekali lagi terima kasih,
 
+
 Semoga sukses BCC Intern 11!
 🚀✨👩‍🚀👩‍🚀.👨‍🚀👨‍🚀
 
 
+
+
+
+
 Tertanda 
 
-User github: snopflake
+User github: snopflake＜（＾－＾）＞
