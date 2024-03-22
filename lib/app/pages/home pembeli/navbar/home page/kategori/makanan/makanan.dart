@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mager_spot/app/pages/home%20pembeli/main_pembeli.dart';
 import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/kategori/makanan/widget%20makanan/makanan_card.dart';
 import 'package:mager_spot/app/pages/home%20pembeli/navbar/home%20page/widget%20homepage/search_bar.dart';
+import 'package:mager_spot/app/pages/widgets/loading.dart';
+import 'package:mager_spot/app/pages/widgets/snackbar.dart';
 import 'package:mager_spot/app/styles/color_styles.dart';
+import 'package:mager_spot/cubit/makanan/makanan_cubit.dart';
+import 'package:mager_spot/data/models/makanan_model.dart';
 
-class Makanan extends StatelessWidget {
+class Makanan extends StatefulWidget {
   const Makanan({super.key});
+
+  @override
+  State<Makanan> createState() => _MakananState();
+}
+
+class _MakananState extends State<Makanan> {
+
+    @override
+    void initState() {
+      context.read<MakananCubit>().getAllMakanan();
+      super.initState();
+    }
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,22 +79,39 @@ class Makanan extends StatelessWidget {
               SizedBox(height: 26.h),
           
               SizedBox(height: 16,),
-          
-              MakananCard(
-                judul: "resep", 
-                harga: "Rp.20.0000", 
-                rating: "4.5", 
-                gambar: ""
+
+            BlocConsumer<MakananCubit, MakananState>(
+            listener: (context, state) {
+              if (state is GetMakananEror) {
+                showSnackBarWidget(context, state.eror);
+              }
+            },
+            builder: (context, state) {
+              if (state is GetMakananLoading) {
+                return const Loading();
+              } else if (state is GetMakananSuccess) {
+                return MakananCard(
+                  dummyData: state.listMakananModel,
+                );
+              }
+              return Center(
+                child: Text("Belum ada postingan",
+                style: GoogleFonts.nunito(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                  color: ColorStyles.darkGrey,
                 ),
-          
-          
-          
+                ),
+              );
+            },
+          ),
+
+
             ],
           ),
         ),
       ),
     );
   }
-
-  
 }
+

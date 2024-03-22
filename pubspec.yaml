@@ -6,7 +6,6 @@ version: 0.1.0
 environment:
   sdk: '>=3.2.3 <4.0.0'
 
-
 dependencies:
   cupertino_icons: ^1.0.6
   dio: ^5.4.1

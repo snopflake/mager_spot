@@ -29,8 +29,8 @@ class FoodPost {
     String pictureLink;
     DateTime createdAt;
     String variant;
-    int numberOfRatings;
-    int averageRating;
+    int? numberOfRatings;
+    int? averageRating;
     User user;
     dynamic comments;
 
@@ -43,10 +43,10 @@ class FoodPost {
         required this.pictureLink,
         required this.createdAt,
         required this.variant,
-        required this.numberOfRatings,
-        required this.averageRating,
+        this.numberOfRatings,
+        this.averageRating,
         required this.user,
-        required this.comments,
+        this.comments,
     });
 
     factory FoodPost.fromJson(Map<String, dynamic> json) => FoodPost(
